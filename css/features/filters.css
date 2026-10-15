@@ -1,0 +1,78 @@
+/* ═══ Filtros de búsqueda ═══ */
+.fbtn {
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  color: var(--mut);
+  transition: 0.2s;
+}
+.fbtn:hover,
+.fbtn.on {
+  background: var(--card);
+  color: var(--fg);
+}
+.fbtn.set {
+  color: var(--acc);
+}
+.fbtn em {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--acc);
+  color: var(--bg);
+  font:
+    600 10px/15px ui-monospace,
+    monospace;
+  font-style: normal;
+  text-align: center;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 14px;
+  margin: 12px 0 2px;
+  animation: in 0.3s both;
+}
+.fsel {
+  display: grid;
+  gap: 4px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.fsel select {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  outline: 0;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.fsel select:hover,
+.fsel select:focus {
+  border-color: var(--acc);
+}
+.factions {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+}

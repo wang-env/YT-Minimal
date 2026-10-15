@@ -1,0 +1,92 @@
+/* ═══ Animaciones: fotogramas y «reducir movimiento» ═══ */
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cine {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sh {
+  to {
+    background-position: -200% 0;
+  }
+}
+/* modo concentración: el vídeo se asienta en el centro con un anillo de acento que se desvanece */
+@keyframes focus-in {
+  from {
+    transform: translateX(var(--fx-x, 0)) scale(0.95);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes focus-ring {
+  from {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--acc) 55%, transparent),
+      0 30px 80px -24px rgba(0, 0, 0, 0.55);
+  }
+  to {
+    box-shadow:
+      0 0 0 18px transparent,
+      0 30px 80px -24px rgba(0, 0, 0, 0.55);
+  }
+}
+@keyframes focus-out {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes focus-aim {
+  0% {
+    transform: scale(1.7) rotate(-45deg);
+  }
+  55% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

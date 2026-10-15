@@ -1,0 +1,84 @@
+/* ═══ Piezas genéricas: avisos, iconos, botones y campos ═══ */
+kbd {
+  font:
+    12px ui-monospace,
+    monospace;
+  color: var(--mut);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 2px 7px;
+}
+.hint {
+  color: var(--mut);
+  font-size: 13px;
+  margin-top: 12px;
+  min-height: 18px;
+}
+.empty {
+  color: var(--mut);
+  padding: 40px 0;
+  text-align: center;
+}
+.ic {
+  flex-shrink: 0;
+}
+.icon-btn {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  color: var(--mut);
+  transition: 0.2s;
+}
+.icon-btn:hover {
+  background: var(--card);
+  color: var(--fg);
+}
+.btn {
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--fg);
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  transition: 0.2s;
+}
+.btn:hover,
+.btn.on {
+  border-color: var(--acc);
+  color: var(--acc);
+}
+.btn.on {
+  background: var(--acc-soft);
+}
+.tagin {
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font: inherit;
+  font-size: 12px;
+  outline: 0;
+  min-width: 0;
+  transition: border-color 0.2s;
+}
+.tagin:focus {
+  border-color: var(--acc);
+}
+.tagin.wide {
+  width: 100%;
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 13px;
+}

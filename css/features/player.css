@@ -1,0 +1,297 @@
+/* ═══ Reproductor: pantalla de cine independiente y mini ═══ */
+.theater.cine {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: auto;
+  background: var(--bg);
+  animation: cine 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.cbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.ctitle {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.ctitle .ic {
+  color: var(--acc);
+}
+.cbody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 32px;
+  padding: 24px;
+  max-width: 1560px;
+  margin: 0 auto;
+}
+.cmain {
+  --pw: min(100%, calc((100vh - 230px) * 16 / 9));
+  min-width: 0;
+}
+.screen {
+  width: var(--pw);
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -24px rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  color: #aaa;
+}
+.screen iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.tinfo {
+  width: var(--pw);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 16px 4px;
+}
+.tinfo h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.tinfo p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--mut);
+}
+.tact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+.tadder {
+  width: var(--pw);
+  margin: 0 auto;
+}
+.queue {
+  align-self: start;
+  position: sticky;
+  top: 76px;
+  max-height: calc(100vh - 100px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.queue h5 {
+  margin: 0 0 8px 12px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+  font-weight: 500;
+}
+.qi {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.qi:hover,
+.qi.on {
+  background: var(--card);
+}
+.qi.on {
+  box-shadow:
+    inset 2px 0 var(--acc),
+    var(--shadow);
+}
+.qi b {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.qi span {
+  font-size: 12px;
+  color: var(--mut);
+}
+/* modo concentración: sin cola y con el vídeo centrado en la página */
+.theater.cine.focus .cbody {
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  min-height: calc(100vh - 60px);
+}
+/* transición al elegir el modo concentración (la clase fx-in / fx-out la pone Player.js durante unos 0,9 s).
+   Solo anima transform y box-shadow del contenedor: el iframe no se recarga y el vídeo sigue sonando.
+   Con «reducir movimiento» en el sistema, animations.css las desactiva todas */
+.theater.fx-in .screen {
+  animation:
+    focus-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    focus-ring 0.85s ease-out both;
+}
+@media (min-width: 1001px) {
+  .theater.fx-in .screen {
+    --fx-x: -80px;
+  }
+}
+.theater.fx-in :is(.tinfo, .tchap) {
+  animation: in 0.5s 0.15s both;
+}
+.theater.fx-in .focusbtn .ic {
+  animation: focus-aim 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.theater.fx-out .screen {
+  animation: focus-out 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.theater.fx-out .queue {
+  animation: slide-in 0.45s 0.1s both;
+}
+.theater.fx-in .ctitle,
+.theater.fx-out .ctitle {
+  animation: in 0.4s both;
+}
+/* mismo nodo, otro estilo: el iframe no se recarga y el vídeo sigue sonando */
+.theater.mini {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  width: min(340px, calc(100vw - 40px));
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--pop-md);
+  animation: pop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.mini .cbody {
+  display: block;
+  padding: 0;
+}
+.mini .cmain {
+  --pw: 100%;
+}
+.mini .screen {
+  border-radius: 0;
+  box-shadow: none;
+}
+.mini .tinfo {
+  padding: 10px 12px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+}
+.mini .tmeta {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+.mini .tinfo h2 {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mini .tinfo p {
+  display: none;
+}
+/* capítulos: pestaña de la barra lateral y lista bajo el vídeo en modo concentración */
+.qtabs {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 8px 8px;
+}
+.qtab {
+  all: unset;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+.qtab:hover {
+  color: var(--fg);
+}
+.qtab.on {
+  color: var(--acc);
+  border-color: var(--line);
+}
+.chlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.queue .chlist {
+  max-height: calc(100vh - 170px);
+}
+.qi.ch {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+.qi.ch .ct {
+  font:
+    12px ui-monospace,
+    monospace;
+}
+.qi.ch.on .ct {
+  color: var(--acc);
+}
+.tchap {
+  width: var(--pw);
+  margin: 0 auto 24px;
+}
+.tchap .chlist {
+  max-height: 260px;
+}
+.tnote {
+  align-self: center;
+  font-size: 12px;
+  color: var(--mut);
+}
+.tnote.err {
+  color: var(--acc);
+}
+.link {
+  all: unset;
+  cursor: pointer;
+  color: var(--acc);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

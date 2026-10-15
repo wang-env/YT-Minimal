@@ -1,0 +1,189 @@
+/* ═══ Playlists ═══ */
+.adder {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 0 4px 16px;
+  display: grid;
+  gap: 12px;
+  animation: in 0.3s both;
+}
+.arow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--mut);
+}
+.arow .tagin {
+  flex: 1;
+}
+.plist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.phead {
+  padding: 24px 0 6px;
+  animation: in 0.4s both;
+}
+.ptitle {
+  width: 100%;
+  border: 0;
+  background: none;
+  outline: 0;
+  color: var(--fg);
+  font-size: 30px;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 4px 0;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.3s;
+}
+.ptitle:hover,
+.ptitle:focus {
+  border-color: var(--line);
+}
+.psub {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  color: var(--mut);
+  font-size: 13px;
+  margin: 6px 0 16px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.chips .btn {
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--mut);
+}
+.chips .btn.on {
+  color: var(--acc);
+}
+.tagrow {
+  display: flex;
+  gap: 8px;
+  padding: 0 4px 14px;
+  align-items: center;
+}
+.tagact {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+.tagrow .btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  color: var(--mut);
+}
+.pstats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 18px;
+  font-size: 13px;
+  color: var(--mut);
+  margin: 4px 0 10px;
+}
+.pstats b {
+  color: var(--fg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.ptag {
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 1px 10px;
+  font-size: 12px;
+}
+.resume {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 6px;
+  min-width: 0;
+}
+.resume span {
+  font-size: 13px;
+  color: var(--mut);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.phead .hint {
+  margin: 12px 0 0;
+}
+/* reordenar vídeos */
+.psub .btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+.chips.lock {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.srow {
+  position: relative;
+}
+.srow .head {
+  cursor: grab;
+}
+.srow.drag {
+  opacity: 0.4;
+}
+.srow.before::before,
+.srow.after::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--acc);
+  z-index: 1;
+}
+.srow.before::before {
+  top: -1px;
+}
+.srow.after::after {
+  bottom: -1px;
+}
+.sortbar .pos {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font:
+    13px ui-monospace,
+    monospace;
+  color: var(--mut);
+}
+.sortbar .btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+}
+.sortbar .btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+.btn.sq {
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--mut);
+}
+.btn.sq:hover,
+.btn.sq.on {
+  color: var(--acc);
+}

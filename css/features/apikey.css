@@ -1,0 +1,117 @@
+/* ═══ API key, cuota y guía de configuración ═══ */
+.key {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  animation: in 0.35s both;
+}
+.key input {
+  flex: 1;
+  border: 0;
+  background: none;
+  outline: 0;
+  color: var(--fg);
+  font:
+    14px ui-monospace,
+    monospace;
+}
+
+.setup {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-top: 8px;
+  animation: in 0.6s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.setup h4 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.setup h4 span {
+  font-size: 11px;
+  background: var(--acc-soft);
+  color: var(--acc);
+  border: 1px solid var(--acc);
+  border-radius: 999px;
+  padding: 1px 9px;
+  font-weight: 500;
+}
+.setup ol {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  counter-reset: s;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--mut);
+}
+.setup li {
+  counter-increment: s;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.setup li::before {
+  content: counter(s);
+  font:
+    12px ui-monospace,
+    monospace;
+  color: var(--acc);
+  flex-shrink: 0;
+  width: 18px;
+}
+.setup a {
+  color: var(--acc);
+  text-decoration: none;
+}
+.setup a:hover {
+  text-decoration: underline;
+}
+
+/* API key y cuota */
+.kr {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.quota {
+  font:
+    12px ui-monospace,
+    monospace;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: help;
+}
+.quota.out,
+.hint.err {
+  color: var(--acc);
+}
+.key {
+  align-items: flex-start;
+}
+.keyform {
+  flex: 1;
+  min-width: 0;
+}
+.key .hint,
+.setup .hint {
+  margin: 0 0 8px;
+}
+.setup .hint {
+  margin: 12px 0 0;
+}
+.keyform .arow {
+  margin: 0;
+}

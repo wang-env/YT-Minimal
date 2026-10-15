@@ -1,0 +1,143 @@
+/* ═══ Estadísticas ═══ */
+.stitle {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 4px 0;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  margin: 14px 0 8px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: in 0.5s both;
+}
+.kpi {
+  background: var(--card);
+  padding: 16px 14px;
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.kpi b {
+  font-size: 19px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.kpi span {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.shead {
+  margin: 30px 4px 12px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+  font-weight: 500;
+}
+.bars {
+  display: grid;
+  gap: 6px;
+  padding: 0 4px;
+}
+.bar {
+  display: grid;
+  grid-template-rows: 100px auto;
+  gap: 6px;
+  justify-items: center;
+  min-width: 0;
+}
+.fill {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+.fill i {
+  display: block;
+  width: 100%;
+  max-width: 26px;
+  border-radius: 5px 5px 2px 2px;
+  background: var(--mut);
+  opacity: 0.45;
+  transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.bar.today .fill i {
+  background: var(--acc);
+  opacity: 1;
+}
+.bar.zero .fill i {
+  background: var(--line);
+  opacity: 1;
+}
+.bar span {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--mut);
+  line-height: 1;
+}
+.bar span b {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.bar.today span {
+  color: var(--acc);
+}
+.srow {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 16px;
+  width: 100%;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: padding 0.25s;
+}
+.srow:hover {
+  padding-left: 12px;
+}
+.srow.flat {
+  cursor: default;
+}
+.srow.flat:hover {
+  padding-left: 4px;
+}
+.sname {
+  font-size: 15px;
+  font-weight: 550;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.srow:not(.flat):hover .sname {
+  color: var(--acc);
+}
+.sval {
+  font:
+    13px ui-monospace,
+    monospace;
+  color: var(--mut);
+  align-self: center;
+}
+.smeta {
+  grid-column: 1/-1;
+  font-size: 13px;
+  color: var(--mut);
+}
+.srow .pbar {
+  margin-top: 8px;
+}

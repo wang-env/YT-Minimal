@@ -1,0 +1,65 @@
+/* ═══ Tokens: colores, tipografía y temas claro/oscuro ═══ */
+/* Tokens de color. Claro: capas de tonos claros (página, barra lateral, tarjetas blancas) con tinta azulada y acento rosa.
+   Oscuro: los mismos nombres, con los valores de siempre (--side, --field, --hover y --acc-soft no añaden nada).
+   Las superficies: --bg página · --side barra lateral · --card paneles y tarjetas · --field campos y botones · --hover fila bajo el cursor */
+:root {
+  --bg: #f4f6fa;
+  --side: #e8ecf3;
+  --card: #fff;
+  --field: #fff;
+  --hover: #eaeef6;
+  --line: #dde2ec;
+  --side-line: #d0d7e3;
+  --fg: #141a26;
+  --mut: #5b6679;
+  --acc: #cc1239;
+  --acc-soft: #ffe8ee;
+  --shadow: 0 1px 2px rgba(20, 26, 38, 0.05), 0 8px 20px -12px rgba(20, 26, 38, 0.18);
+  --pop-sm: 0 18px 40px -14px rgba(30, 40, 70, 0.28);
+  --pop-md: 0 20px 44px -14px rgba(30, 40, 70, 0.32);
+  color-scheme: light;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+/* Tema: sin data-theme manda el sistema; data-theme="light" o "dark" (selector de la barra lateral) lo fija.
+   El bloque oscuro está dos veces (sistema y forzado): si cambias un valor, cámbialo en ambos. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0c0e;
+    --side: transparent;
+    --card: #141417;
+    --field: none;
+    --hover: transparent;
+    --line: #1f1f23;
+    --side-line: #1f1f23;
+    --fg: #f4f4f5;
+    --mut: #8b8b94;
+    --acc: #fb7185;
+    --acc-soft: transparent;
+    --shadow: 0 0 #0000;
+    --pop-sm: 0 20px 50px -12px rgba(0, 0, 0, 0.4);
+    --pop-md: 0 20px 50px -12px rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c0c0e;
+  --side: transparent;
+  --card: #141417;
+  --field: none;
+  --hover: transparent;
+  --line: #1f1f23;
+  --side-line: #1f1f23;
+  --fg: #f4f4f5;
+  --mut: #8b8b94;
+  --acc: #fb7185;
+  --acc-soft: transparent;
+  --shadow: 0 0 #0000;
+  --pop-sm: 0 20px 50px -12px rgba(0, 0, 0, 0.4);
+  --pop-md: 0 20px 50px -12px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}

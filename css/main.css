@@ -1,0 +1,29 @@
+/* ═══ Estilos: punto de entrada ═══
+   index.html enlaza solo este archivo, que importa los demás.
+   EL ORDEN IMPORTA: es el de la cascada (con la misma especificidad gana lo que va después), así que no lo cambies sin revisar.
+   Para añadir un archivo: créalo en su carpeta, impórtalo aquí y añádelo a SHELL en sw.js. */
+
+/* 1 · Base: variables y temas, reset y animaciones */
+@import "base/tokens.css";
+@import "base/reset.css";
+@import "base/animations.css";
+
+/* 2 · Piezas genéricas reutilizables */
+@import "components/ui.css";
+
+/* 3 · Estructura de la página */
+@import "layout/shell.css";
+@import "layout/sidebar.css";
+@import "layout/topbar.css";
+
+/* 4 · Funciones de la app (y las filas de vídeo que comparten búsqueda y playlists) */
+@import "features/apikey.css";
+@import "features/filters.css";
+@import "components/rows.css";
+@import "features/player.css";
+@import "features/playlists.css";
+@import "features/pomodoro.css";
+@import "features/stats.css";
+
+/* 5 · Pantallas pequeñas: siempre el último */
+@import "layout/responsive.css";

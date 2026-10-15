@@ -1,0 +1,126 @@
+/* ═══ Filas de vídeo ═══ */
+.row {
+  border-bottom: 1px solid var(--line);
+  animation: in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  padding: 18px 4px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition:
+    padding 0.25s,
+    background 0.2s;
+}
+.head:hover {
+  padding-left: 14px;
+  background: var(--hover);
+}
+.head:hover h3,
+.row.on h3 {
+  color: var(--acc);
+}
+.row.on .head {
+  box-shadow: inset 2px 0 var(--acc);
+  padding-left: 14px;
+  background: var(--hover);
+}
+h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 550;
+  line-height: 1.35;
+  transition: color 0.2s;
+}
+.dur {
+  font:
+    13px ui-monospace,
+    monospace;
+  color: var(--mut);
+  align-self: start;
+  padding-top: 3px;
+}
+.meta {
+  grid-column: 1/-1;
+  font-size: 13px;
+  color: var(--mut);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+.meta i {
+  font-style: normal;
+  opacity: 0.4;
+}
+.add {
+  all: unset;
+  cursor: pointer;
+  margin-left: 10px;
+  opacity: 0.4;
+  color: var(--fg);
+  vertical-align: middle;
+  transition: 0.2s;
+}
+.head:hover .add,
+.add:hover {
+  opacity: 1;
+  color: var(--acc);
+}
+.more {
+  display: block;
+  margin: 28px auto 0;
+}
+.skel {
+  height: 64px;
+  margin: 14px 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--line), transparent, var(--line));
+  background-size: 200% 100%;
+  animation: sh 1.2s infinite;
+}
+.source {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--mut);
+}
+.source b {
+  color: var(--fg);
+  font-weight: 600;
+}
+/* progreso de visionado */
+.pbar {
+  display: block;
+  grid-column: 1/-1;
+  height: 2px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+.pbar.big {
+  height: 3px;
+  margin: 0;
+}
+.pbar i {
+  display: block;
+  height: 100%;
+  background: var(--acc);
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.meta .ok {
+  color: var(--acc);
+}
+.row.seen h3 {
+  color: var(--mut);
+}
+.row.seen .head:hover h3,
+.row.seen.on h3 {
+  color: var(--acc);
+}

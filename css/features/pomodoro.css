@@ -1,0 +1,124 @@
+/* ═══ Pomodoro ═══ */
+.pomo-wrap {
+  position: relative;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.pomo {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--field);
+  font:
+    12px ui-monospace,
+    monospace;
+  color: var(--mut);
+  transition: 0.2s;
+}
+.pomo:hover,
+.pomo[aria-expanded="true"] {
+  color: var(--fg);
+  border-color: var(--mut);
+}
+.pomo.run {
+  color: var(--acc);
+  border-color: var(--acc);
+  background: var(--acc-soft);
+}
+.pomo.run.rest {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+.pomo-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 50;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--pop-sm);
+  animation: in 0.25s both;
+}
+.pphase {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.pphase b {
+  font-weight: 500;
+}
+.pdots {
+  display: flex;
+  gap: 6px;
+}
+.pdots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+}
+.pdots i.cur {
+  border-color: var(--acc);
+}
+.pdots i.on {
+  background: var(--acc);
+  border-color: var(--acc);
+}
+.pclock {
+  font:
+    600 48px/1 ui-monospace,
+    monospace;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  padding: 6px 0;
+}
+.pctl {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.pomo-panel .hint {
+  margin: 0;
+  text-align: center;
+}
+.pcfg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.tagin.num {
+  width: 100%;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+.chk {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--mut);
+  cursor: pointer;
+}
+.chk input {
+  accent-color: var(--acc);
+  margin: 0;
+}

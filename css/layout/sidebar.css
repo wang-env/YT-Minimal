@@ -1,0 +1,252 @@
+/* ═══ Barra lateral ═══ */
+.side {
+  width: 248px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+  padding: 22px 14px;
+  background: var(--side);
+  border-right: 1px solid var(--side-line);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition:
+    margin-left 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.3s,
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0.45s;
+}
+.side.hide {
+  margin-left: -248px;
+  opacity: 0;
+  transform: translateX(-30px);
+  visibility: hidden;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+  margin: 0 12px 18px;
+}
+.logo b {
+  color: var(--acc);
+}
+.nav {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--mut);
+  transition: 0.2s;
+}
+.nav:hover,
+.nav.on {
+  background: var(--card);
+  color: var(--fg);
+}
+.nav.on {
+  box-shadow:
+    inset 2px 0 var(--acc),
+    var(--shadow);
+}
+.nav .nm {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav em {
+  font:
+    12px ui-monospace,
+    monospace;
+  opacity: 0.6;
+}
+.slabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 12px 6px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.slabel button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.slabel button:hover {
+  color: var(--acc);
+}
+.slabel .fold-btn {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 2px 0;
+}
+.fold-btn em {
+  font:
+    11px ui-monospace,
+    monospace;
+  opacity: 0.6;
+}
+.chev {
+  transition: transform 0.3s;
+}
+.chev.open {
+  transform: rotate(90deg);
+}
+.fold {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fold.open {
+  grid-template-rows: 1fr;
+}
+.fold > div {
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  visibility: hidden;
+  transition: visibility 0.4s;
+}
+.fold.open > div {
+  visibility: visible;
+}
+.side .hint {
+  margin: 6px 12px;
+}
+.foot {
+  margin-top: auto;
+  padding-top: 16px;
+}
+.backup,
+.autosave,
+.install {
+  margin: 0 12px;
+}
+.backup {
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.backup .btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  color: var(--mut);
+}
+.backup .btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.backup .hint {
+  width: 100%;
+  margin: 2px 0 0;
+}
+/* guardado automático e instalación */
+.autosave {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--side-line);
+}
+.autosave .hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+}
+.autosave .hint.err {
+  color: var(--acc);
+}
+.alabel {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+.aname {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aname .ok {
+  color: var(--acc);
+}
+.acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.acts .btn,
+.install {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+.install {
+  margin-top: 12px;
+  color: var(--acc);
+  border-color: var(--acc);
+  display: block;
+  width: calc(100% - 24px);
+}
+/* selector de tema */
+.theme {
+  margin: 14px 12px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--side-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.seg {
+  display: flex;
+  gap: 2px;
+  border: 1px solid var(--side-line);
+  border-radius: 9px;
+  padding: 2px;
+}
+.seg button {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 26px;
+  border-radius: 7px;
+  color: var(--mut);
+  transition: 0.2s;
+}
+.seg button:hover {
+  color: var(--fg);
+}
+.seg button[aria-checked="true"] {
+  background: var(--card);
+  color: var(--acc);
+  box-shadow: var(--shadow);
+}
+.seg button:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 1px;
+}
