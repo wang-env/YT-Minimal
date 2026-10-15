@@ -10,9 +10,9 @@ Sin miniaturas, sin recomendaciones y sin comentarios: solo tú y lo que quieres
 ![Sin compilación](https://img.shields.io/badge/build-ninguno-lightgrey)
 ![PWA](https://img.shields.io/badge/PWA-instalable-5a0fc8)
 
-[**Ver demo**](https://TU-USUARIO.github.io/YT-Minimal/) · [Documentación completa](docs/README.md)
+[**Ver demo**](https://wang-env.github.io/YT-Minimal/) · [Documentación completa](docs/README.md)
 
-<img src="captures/busqueda.png" alt="Vista de búsqueda con resultados en filas tipográficas" width="860">
+<img src="captures/cine.gif" alt="Vista de búsqueda con resultados en filas tipográficas" width="860">
 
 </div>
 
