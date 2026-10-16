@@ -69,7 +69,7 @@ Es una web **estática** (React por CDN, módulos ES y CSS plano): sin backend, 
 No hay nada que instalar. Sirve la carpeta con cualquier servidor estático:
 
 ```bash
-git clone https://github.com/TU-USUARIO/YT-Minimal.git
+git clone https://github.com/wang-env/YT-Minimal.git
 cd YT-Minimal
 python -m http.server 8000
 ```
